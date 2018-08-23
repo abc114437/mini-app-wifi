@@ -16,10 +16,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 20rpx 0;
+  font-size: 28rpx;
 }
 
 .name {
-  width: 40%;
+  width: 50%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -27,7 +28,7 @@
 }
 
 .mac {
-  flex: 1 0 60%;
+  flex: 1 0 45%;
   white-space: nowrap;
 }
 
