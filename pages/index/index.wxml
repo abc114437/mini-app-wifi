@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="wifiList">
+    <view class="wifiItem" wx:for="{{wifiList}}" wx:key="{{item.SSID}}">
+      <text class="name">{{item.SSID}}</text>
+      <view class="mac"><text>mac: </text><text>{{item.BSSID}}</text></view>
+    </view>
+  </view>
+  <button type="primary" bindtap="getWifi">设置</button>
+  <view class="info">点击设置，前往系统wifi列表，返回查看mac地址</view>
+</view>

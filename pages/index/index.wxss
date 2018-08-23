@@ -1,0 +1,39 @@
+/**index.wxss**/
+.container {
+  height: 100%;
+}
+
+.wifiList {
+  margin-top: 100rpx;
+  padding: 20rpx;
+  height: 800rpx;
+  overflow-y: scroll;
+  box-sizing: content-box;
+}
+
+.wifiItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.name {
+  width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 10%;
+}
+
+.mac {
+  flex: 1 0 60%;
+  white-space: nowrap;
+}
+
+.info {
+  padding-top: 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+}
