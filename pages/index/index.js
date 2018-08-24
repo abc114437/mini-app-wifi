@@ -4,10 +4,18 @@ const app = getApp()
 
 Page({
   data: {
+    currentWifi: '',
     wifiList: []
   },
   onLoad() {
     this.startWifi()
+  },
+  onShow() {
+    this.getConnectedWifi().then(currentWifi => {
+      this.setData({
+        currentWifi
+      })
+    })
   },
   getWifi() {
     this.getWifiList()
@@ -84,7 +92,7 @@ Page({
         success(res) {
           console.log(res)
           if (res && res.wifi && res.wifi.SSID) {
-            resolve(res.wifi.SSID)
+            resolve(res.wifi)
           }
         },
         complete(r) {

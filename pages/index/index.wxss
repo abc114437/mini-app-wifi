@@ -4,11 +4,16 @@
 }
 
 .wifiList {
-  margin-top: 100rpx;
+  margin-top: 50rpx;
   padding: 20rpx;
   height: 800rpx;
   overflow-y: scroll;
   box-sizing: content-box;
+}
+
+.currentWifi {
+  color: #14A513;
+  border-bottom: 2rpx solid #dcdcdc;
 }
 
 .wifiItem {
