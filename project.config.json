@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.2.2",
 	"appid": "wxfa71eb703bf7ed75",
-	"projectname": "mini-app",
+	"projectname": "mini-app-wifi",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
