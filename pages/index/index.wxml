@@ -13,7 +13,10 @@
   </view>
   <view class="info">点击设置，前往系统wifi列表，返回查看mac地址</view>
   <button class="setting" type="primary" bindtap="getWifi">设置</button>
-  <ad unit-id="adunit-2b937460446dbeb5"></ad>
+  <ad unit-id="adunit-2b937460446dbeb5"
+      bindload="adBindLoad"
+      binderror="adBindError"
+  ></ad>
 </view>
 <template name="wifiItem">
   <view class="wifiItem" >

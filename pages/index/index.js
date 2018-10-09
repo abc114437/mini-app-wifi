@@ -161,4 +161,10 @@ Page({
     }
     this.connectedFail(errMsg)
   },
+  adBindLoad(e) {
+    console.log(e)
+  },
+  adBindError(e) {
+    console.warn(e)
+  }
 })
