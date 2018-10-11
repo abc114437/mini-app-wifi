@@ -5,16 +5,33 @@ const app = getApp()
 Page({
   data: {
     currentWifi: '',
-    wifiList: []
+    wifiList: '',
+    iPhone: false
+  },
+  onShareAppMessage() {
+    return {
+      title: '查看Wi-Fi的mac地址',
+      path: '/pages/index/index'
+    }
   },
   onLoad() {
     this.startWifi()
+    this.init()
   },
   onShow() {
     this.getConnectedWifi().then(currentWifi => {
       this.setData({
         currentWifi
       })
+    })
+  },
+  init() {
+    wx.getSystemInfo({
+      success: (res) => {
+        if (res.system.includes('iOS')) {
+          this.setData({iPhone: true})
+        }
+      }
     })
   },
   getWifi() {
@@ -51,16 +68,19 @@ Page({
     return new Promise(resolve => {
       wx.onGetWifiList(res => {
         console.log(res.wifiList)
+        const wifiList = res.wifiList.filter(item => {
+          return item.SSID !== this.data.currentWifi.SSID
+        })
         this.setData({
-          wifiList: res.wifiList
+          wifiList
         })
       })
     })
   },
-  connectWifi({ SSID, BSSID, password } = this.shopWifi) {
+  connectWifi({SSID, BSSID, password} = this.shopWifi) {
     return new Promise((resolve, reject) => {
       if (!SSID) {
-        const r = { errCode: -1 }
+        const r = {errCode: -1}
         return reject(r)
       }
       wx.connectWifi({
@@ -128,7 +148,7 @@ Page({
     })
   },
   connectedSuccess(SSID = '') {
-    const wifi = { ...StatusList[1] }
+    const wifi = {...StatusList[1]}
     wifi.desc += SSID
     this.setData({
       wifi,
@@ -138,7 +158,7 @@ Page({
     this.countDown(2)
   },
   connectedFail(errMsg) {
-    const wifi = { ...StatusList[2] }
+    const wifi = {...StatusList[2]}
     errMsg && (wifi.desc = errMsg)
     this.setData({
       wifi,

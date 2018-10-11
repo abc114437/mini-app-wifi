@@ -3,24 +3,30 @@
   <view class="wifiList">
     <view class="currentWifi" wx:if="{{currentWifi}}">
       <view class="title">当前Wi-Fi</view>
-      <template is="wifiItem" data="{{...currentWifi}}" />
+      <template is="wifiItem" data="{{...currentWifi}}"/>
     </view>
 
-    <block wx:for="{{wifiList}}" wx:key="{{item.SSID}}">
-      <template is="wifiItem" data="{{...item}}" />
-    </block>
-
+    <view class="otherWifi" wx:if="{{wifiList}}">
+      <view class="title">其他Wi-Fi</view>
+      <block wx:for="{{wifiList}}" wx:key="{{item.SSID}}">
+        <template is="wifiItem" data="{{...item}}"/>
+      </block>
+    </view>
   </view>
-  <view class="info">点击设置，前往系统wifi列表，返回查看mac地址</view>
-  <button class="setting" type="primary" bindtap="getWifi">设置</button>
+  <button class="setting" type="primary" bindtap="getWifi">识别更多Wi-Fi</button>
+  <view wx:if="{{iPhone}}" class="info">点击识别，前往系统wifi列表，等待刷新，返回小程序查看mac地址</view>
+  
   <ad unit-id="adunit-2b937460446dbeb5"
       bindload="adBindLoad"
       binderror="adBindError"
   ></ad>
 </view>
 <template name="wifiItem">
-  <view class="wifiItem" >
+  <view class="wifiItem">
     <text class="name">{{SSID}}</text>
-    <view class="mac"><text>mac: </text><text>{{BSSID}}</text></view>
+    <view class="mac">
+      <text>mac:</text>
+      <text>{{BSSID}}</text>
+    </view>
   </view>
 </template>

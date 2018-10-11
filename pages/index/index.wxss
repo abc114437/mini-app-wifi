@@ -1,6 +1,7 @@
 /**index.wxss**/
 page {
   height: 100%;
+  background: #f5f5f5;
 }
 .container {
   height: 100%;
@@ -9,24 +10,42 @@ page {
 }
 
 .wifiList {
-  margin-top: 50rpx;
-  padding: 20rpx;
   flex: 1;
   overflow-y: scroll;
   box-sizing: content-box;
 }
 
 .currentWifi {
+  margin: 0 20rpx;
+  padding: 30rpx;
+  background: #fff;
   color: #14A513;
-  border-bottom: 2rpx solid #dcdcdc;
+  border-radius: 10rpx;
+  box-shadow: 0 4rpx 24rpx 2rpx rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 28rpx;
+  color: #14A513;
+}
+
+.otherWifi {
+  margin: 20rpx;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 4rpx 24rpx 2rpx rgba(0, 0, 0, 0.1);
 }
 
 .wifiItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20rpx 0;
   font-size: 28rpx;
+}
+
+.wifiItem:nth-child(n+2) {
+  padding-top: 30rpx;
 }
 
 .name {
@@ -43,12 +62,16 @@ page {
 }
 
 .info {
-  padding-top: 20rpx;
+  padding-bottom: 20rpx;
   text-align: center;
-  font-size: 28rpx;
-  color: #333;
+  font-size: 24rpx;
+  color: #666;
 }
 
 .setting {
-  margin: 20rpx 0;
+  margin: 20rpx auto;
+  width: 50%;
+  line-height: 80rpx;
+  border-radius: 80rpx;
+  font-size: 32rpx;
 }
